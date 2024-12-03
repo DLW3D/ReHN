@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ReHN"
+dynamic = ["version"]
+description = "Height normalization for point clouds using the Re-Height Normalization (ReHN) algorithm."
+readme = "README.md"
+requires-python = ">=3.6.0"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Liwei Deng", email = "dlw3d@qq.com"}
+]
+keywords = ["Height normalization", "point clouds", "LiDAR", "3D", "ReHN"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: GIS",
+
+    "License :: OSI Approved :: Apache Software License",
+
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy<2",
+    "pykdtree"
+]
+
+[project.optional-dependencies]
+no-ground-labels = ["cloth-simulation-filter"]
+
+[project.urls]
+Repository = "https://github.com/DLW3D/ReHN.git"
+Issues = "https://github.com/DLW3D/ReHN/issues"
+
+[project.scripts]
+rehn = "rehn:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "rehn.__version__"}

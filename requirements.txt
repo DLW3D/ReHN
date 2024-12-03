@@ -1,0 +1,3 @@
+numpy<2    # Restriction caused by cloth-simulation-filter v1.1.5
+pykdtree
+cloth-simulation-filter  # Only if you have not ground labels
