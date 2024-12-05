@@ -1,7 +1,7 @@
 ReHN: Point Cloud _Re_-Height Normalization
 =======================
 <div>
-    <img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_rgb.jpg" width = "300"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_z.jpg" width = "300"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_norm_z.jpg" width = "300"" />
+    <img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_rgb.jpg" width = "200"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_z.jpg" width = "200"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_norm_z.jpg" width = "200"" />
 </div>
 
 ## Introduction
