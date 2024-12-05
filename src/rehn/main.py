@@ -119,6 +119,7 @@ def height_norm(xyz: np.ndarray,
     ground_z = xyz[ground_mask, 2]  # Ground height value
     all_ground_z = inv_dis_interpolation(ground_xy, ground_z, xyz[:, :2], n_k)  # Calculate the height of the ground point corresponding to all points
     norm_z = xyz[:, 2] - all_ground_z  # Normalized height
+    norm_z = np.clip(norm_z, 0, None)  # Clip negative values to 0
 
     return norm_z, ground_mask
 

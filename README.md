@@ -1,5 +1,32 @@
 ReHN: Point Cloud _Re_-Height Normalization
 =======================
+
+<style>
+  .image-container {
+    text-align: center;
+  }
+  .image-container img {
+    margin-bottom: 5px;
+  }
+  .image-container p {
+    margin: 0;
+  }
+</style>
+<div style="display: flex; justify-content: space-around;">
+  <div class="image-container">
+    <img src="./samples/images/pc_rgb.jpg" width = "300" />
+    <p>Point Cloud</p>
+  </div>
+  <div class="image-container">
+    <img src="./samples/images/pc_z.jpg" width = "300" />
+    <p>Before height normalization</p>
+  </div>
+  <div class="image-container">
+    <img src="./samples/images/pc_norm_z.jpg" width = "300" />
+    <p>After height normalization</p>
+  </div>
+</div>
+
 ## Introduction
 This repository contains the python implementation of point cloud _Re_-Height Normalization (ReHN). The code is based on the paper:
 
@@ -9,6 +36,7 @@ https://www.sciencedirect.com/science/article/pii/S0034425724001718
 ### What it contains?
 - A python package `rehn`
 - A command line tool `rehn`
+- A sample point cloud data `samples/HX_sample_with_ground.ply`, from Guilin University of Technology, Fu Bolin's team. 
 
 You can simply use the command line tool for point cloud height normalization, or use the python package to integrate the height normalization into your own code.
 
@@ -24,7 +52,8 @@ pip install rehn
 ```bash
 git clone https://github.com/DLW3D/ReHN.git
 cd ReHN
-pip install -e . # -i https://pypi.mirrors.ustc.edu.cn/simple
+pip install -e .
+# pip install -e . -i https://pypi.mirrors.ustc.edu.cn/simple
 ```
 
 ## Usage
@@ -61,8 +90,8 @@ height_norm_f('samples/HX_sample_with_ground.ply',
 or
 ```python
 from rehn import height_norm, count_dem
-xyz = ...  # Load your point cloud data
-ground_mask = ...  # Load your basic ground mask
+xyz = ...  # Load point cloud data
+ground_mask = ...  # Load basic ground mask
 norm_z, ground_mask = height_norm(xyz, ground_mask)
 dem = count_dem(xyz, ground_mask)
 ```
