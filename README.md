@@ -1,7 +1,7 @@
 ReHN: Point Cloud _Re_-Height Normalization
 =======================
 <div>
-    <img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_rgb.jpg" width = "200"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_z.jpg" width = "200"" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_norm_z.jpg" width = "200"" />
+    <img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_rgb.jpg" width = "250" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_z.jpg" width = "250" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_norm_z.jpg" width = "250" />
 </div>
 
 ## Introduction
@@ -82,14 +82,10 @@ dem = count_dem(xyz, ground_mask)
 ## Citation
 If you find this work useful, please consider citing the following paper:
 ```
-@article{fu2024quantifying,
-  title={Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud},
-  author={Fu, Bojie and Deng, Liangji and Sun, Weixing and He, Honglin and Li, Hui and Wang, Yifan and Wang, Yifan},
-  journal={Remote Sensing of Environment},
-  volume={307},
-  pages={114160},
-  year={2024},
-  publisher={Elsevier}
-  doi={10.1016/j.rse.2024.114160}
+@article{FU2024114160,
+author = {Bolin Fu and Liwei Deng and Weiwei Sun and Hongchang He and Huajian Li and Yong Wang and Yeqiao Wang},
+title = {Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud},
+journal = {Remote Sensing of Environment},
+year = {2024},
 }
 ```
