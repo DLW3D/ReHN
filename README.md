@@ -64,7 +64,7 @@ from rehn import height_norm, count_dem
 xyz = ...  # Load your point cloud data
 ground_mask = ...  # Load your basic ground mask
 norm_z, ground_mask = height_norm(xyz, ground_mask)
-count_dem(xyz, ground_mask, '/path/to/save/dem.npy')
+dem = count_dem(xyz, ground_mask)
 ```
 
 ## Requirements

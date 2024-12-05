@@ -54,7 +54,9 @@ def height_norm_f(pc_path,
 
     if dem_save_path:
         print('Calculating DEM...')
-        count_dem(xyz, ground_mask, dem_save_path, dem_resolution, n_k)
+        dem = count_dem(xyz, ground_mask, dem_resolution, n_k)
+        np.save(dem_save_path, dem)
+
 
     print('Saving results...')
     # Organize additional features
@@ -281,7 +283,7 @@ def inv_dis_interpolation(base_xy, base_v, inter_xy, n_k=10, snap_dist=None, sol
     return result
 
 
-def count_dem(xyz, ground_mask, dem_save_path, raster_size=0.2, n_k=300):
+def count_dem(xyz, ground_mask, raster_size=0.2, n_k=300):
     """
     Calculate DEM (Digital Elevation Model)
     :param xyz: np.array2d (N, 3) Point cloud coordinates
@@ -296,17 +298,16 @@ def count_dem(xyz, ground_mask, dem_save_path, raster_size=0.2, n_k=300):
     xyz = xyz[idx_sort]
     ground_mask = ground_mask[idx_sort]
     # Raster inverse distance weighted interpolation
-    DEM = inv_dis_interpolation((xyz[ground_mask, :2] - xyz[:, :2].min(0, keepdims=True)) / raster_size,
+    dem = inv_dis_interpolation((xyz[ground_mask, :2] - xyz[:, :2].min(0, keepdims=True)) / raster_size,
                                 xyz[ground_mask, 2], np.indices(raster_shape).reshape(2, -1).T.astype(np.float32),
                                 n_k=n_k, snap_dist=1e-3)
-    DEM = DEM.reshape(raster_shape)
+    dem = dem.reshape(raster_shape)
     # If the lowest point in the raster is lower, use the lowest point in the raster
     for cls in range(raster_num):
         lowest_z = xyz[idx_select[cls]: idx_select[cls] + raster_count[cls], 2].min()
-        if lowest_z < DEM[raster_pos[0][cls], raster_pos[1][cls]]:
-            DEM[raster_pos[0][cls], raster_pos[1][cls]] = lowest_z
-    np.save(dem_save_path, DEM.T[::-1])
-    return
+        if lowest_z < dem[raster_pos[0][cls], raster_pos[1][cls]]:
+            dem[raster_pos[0][cls], raster_pos[1][cls]] = lowest_z
+    return dem.T[::-1]
 
 
 def main():
