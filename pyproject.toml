@@ -24,12 +24,12 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "numpy<2",
+    "numpy",
     "pykdtree"
 ]
 
 [project.optional-dependencies]
-no-ground-labels = ["cloth-simulation-filter"]
+csf = ["cloth-simulation-filter", "numpy<2"]
 
 [project.urls]
 Repository = "https://github.com/DLW3D/ReHN.git"
