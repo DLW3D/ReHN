@@ -57,7 +57,6 @@ def height_norm_f(pc_path,
         dem = count_dem(xyz, ground_mask, dem_resolution, n_k)
         np.save(dem_save_path, dem)
 
-
     print('Saving results...')
     # Organize additional features
     other_feature = []
@@ -289,7 +288,6 @@ def count_dem(xyz, ground_mask, raster_size=0.2, n_k=300):
     Calculate DEM (Digital Elevation Model)
     :param xyz: np.array2d (N, 3) Point cloud coordinates
     :param ground_mask: np.array1d (N,) Binary feature: whether it is a ground point
-    :param dem_save_path: str Path to save the DEM file (npy format)
     :param raster_size: float Size of the raster
     :param n_k: int Number of neighboring points used for inverse distance weighted interpolation
     """

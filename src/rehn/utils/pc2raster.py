@@ -48,6 +48,8 @@ def index_rasterize(coord, raster_size, center_boundary=True):
             features[i] = pc_in_cell[:, 2].max()  # Calculate the maximum Z value for each raster <--- Your requirement
         raster = np.zeros((*raster_shape, 1), dtype=np.float32) * np.nan  # 2d raster
         raster[raster_pos] = features  # Convert to 2d based on the index
+        idx_sort_reverse = np.argsort(idx_sort)  # Reverse sorting index
+        pc = pc[idx_sort_reverse]  # Restore the original order of the point cloud
     """
     coord = coord - coord.min(axis=0, keepdims=True)  # Align the origin of the coordinates to the minimum coordinate
     if center_boundary:

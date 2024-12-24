@@ -4,10 +4,12 @@ ReHN: Point Cloud _Re_-Height Normalization
     <img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_rgb.jpg" width = "250" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_z.jpg" width = "250" /><img src="https://github.com/DLW3D/ReHN/blob/main/samples/images/pc_norm_z.jpg" width = "250" />
 </div>
 
+**English** | [中文](https://github.com/DLW3D/ReHN/blob/main/README_zh.md)
+
 ## Introduction
 This repository contains the python implementation of point cloud _Re_-Height Normalization (ReHN). The code is based on the paper:
 
-Fu, B., Deng, L., Sun, W., He, H., Li, H., Wang, Y., Wang, Y., 2024. Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud. Remote Sens. Environ. 307, 114160. 10.1016/j.rse.2024.114160.
+Fu, B., Deng, L., Sun, W., He, H., Li, H., Wang, Y., Wang, Y., 2024. Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud. Remote Sens. Environ. 307, 114160. doi:10.1016/j.rse.2024.114160.
 https://www.sciencedirect.com/science/article/pii/S0034425724001718
 
 ### What it contains?
@@ -20,8 +22,13 @@ You can simply use the command line tool for point cloud height normalization, o
 
 ## Installation
 ### Install from PyPI
+If you have the ground point information of the point cloud, you can install it directly by:
 ```bash
 pip install rehn
+```
+If you don't have the ground point information of the point cloud, you need to install the CSF dependency together:
+```bash
+pip install rehn[csf]
 ```
 
 ### Install from source
@@ -36,19 +43,29 @@ pip install -e .
 ## Usage
 
 ### Use as a command line tool
+#### Add the python bin path to PATH
 Make sure you have add the **python bin path** to the system environment variable PATH.
-you can find it by Windows:`where.exe python`, Linux:`which python`.
+you can find it by: 
+- Windows: `where.exe python`
+- Linux: `which python`
 
 The python bin path may look like: 
 - Windows: `C:\Users\username\AppData\Local\Programs\Python\Python39\Scripts`
 - Linux: `/etc/miniconda3/envs/env_name/bin`
 
+Run the following command to temporarily add the python bin path to PATH:
+- Windows: `set PATH=%PATH%;C:\Users\username\AppData\Local\Programs\Python\Python39\Scripts`
+- Linux: `export PATH=$PATH:/etc/miniconda3/envs/env_name/bin`
+
+Replace the path according to your actual situation
+
+#### Run the rehn command
 Run the following command to normalize the point cloud:
 ```bash
 rehn -i samples/HX_sample_with_ground.ply -o samples/outputs/HXs_ReHN.ply -n samples/outputs/HXs_ReHN.npy
 ```
 
-#### Options
+#### Optional arguments
 - `-i` or `--pc_path`: **Required:** Path to the input point cloud (PLY format) 
 - `-o` or `--save_path`: **Required:** Path to save the output point cloud (PLY format)
 - `-m` or `--dem_save_path`: Path to save the DEM (npy format), default=`None`
@@ -75,8 +92,8 @@ dem = count_dem(xyz, ground_mask)
 
 ## Requirements
 - pykdtree
-- cloth-simulation-filter  (CSF) (**Optional**: you need it if you don't have potential ground labels）
-- numpy < 2  (if you don't need CSF, free to use numpy >= 2)
+- cloth-simulation-filter  (**Optional**: CSF algorithm. You need it if you don't have potential ground labels）
+- numpy  (If you need CSF, `numpy < 2` is required)
 
 
 ## Citation
