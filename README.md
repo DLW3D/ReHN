@@ -6,12 +6,6 @@ ReHN: Point Cloud _Re_-Height Normalization
 
 **English** | [中文](https://github.com/DLW3D/ReHN/blob/main/README_zh.md)
 
-## Introduction
-This repository contains the python implementation of point cloud _Re_-Height Normalization (ReHN). The code is based on the paper:
-
-Fu, B., Deng, L., Sun, W., He, H., Li, H., Wang, Y., Wang, Y., 2024. Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud. Remote Sens. Environ. 307, 114160. doi:10.1016/j.rse.2024.114160.
-https://www.sciencedirect.com/science/article/pii/S0034425724001718
-
 ### What it contains?
 - A python package `rehn`
 - A command line tool `rehn`
@@ -95,14 +89,3 @@ dem = count_dem(xyz, ground_mask)
 - cloth-simulation-filter  (**Optional**: CSF algorithm. You need it if you don't have potential ground labels）
 - numpy  (If you need CSF, `numpy < 2` is required)
 
-
-## Citation
-If you find this work useful, please consider citing the following paper:
-```
-@article{FU2024114160,
-author = {Bolin Fu and Liwei Deng and Weiwei Sun and Hongchang He and Huajian Li and Yong Wang and Yeqiao Wang},
-title = {Quantifying vegetation species functional traits along hydrologic gradients in karst wetland based on 3D mapping with UAV hyperspectral point cloud},
-journal = {Remote Sensing of Environment},
-year = {2024},
-}
-```
